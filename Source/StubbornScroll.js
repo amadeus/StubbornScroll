@@ -3,7 +3,7 @@
 
 name: StubbornScroll
 
-description: A
+description: A simple way to prevent parent elements from scrolling when hitting the limits of an element who has an internal scroll
 
 author: Amadeus Demarzi, @amadeus
 
@@ -24,14 +24,14 @@ var StubbornScroll = this.StubbornScroll = new Class({
 		this.element = document.id(el);
 		if (!this.element) return;
 		this.validateScroll = this.validateScroll.bind(this);
-		this.enable();
+		this.attach();
 	},
 
-	enable: function(){
+	attach: function(){
 		this.element.addEvent('mousewheel', this.validateScroll);
 	},
 
-	disable: function(){
+	detach: function(){
 		this.element.removeEvent('mousewheel', this.validateScroll);
 	},
 
